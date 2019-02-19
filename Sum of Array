@@ -1,0 +1,18 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    int n,i,a[10],sum=0;
+    cout<<"enter no of elements in array\n";
+    cin>>n;
+    cout<<"\nenter elements in array\n";
+    for(i=0;i<n;i++)
+    {
+        cin>>a[i];
+    }
+    for(i=0;i<n;i++)
+    {
+        sum=sum+a[i];
+    }
+    cout<<"sum="<<sum;
+}
