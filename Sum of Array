@@ -15,5 +15,5 @@ int main()
         sum=sum+a[i];
     }
     cout<<"sum="<<sum;
-    cout<<"sum-"<<sum;
+    cout<<"sum-"<<sumjefhjksdniufui;
 }
