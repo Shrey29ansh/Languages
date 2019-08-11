@@ -1,0 +1,47 @@
+#include<stdio.h>
+#include<string.h>
+#define MAX 50
+int rear=-1;
+int front=-1;
+char array[MAX];
+int main()
+{
+	char str[MAX];
+	char reverse[MAX];
+	int i;
+	printf("enter the string\n");
+	gets(str);
+	for(i=0;i<=strlen(str);i++)
+	{
+		if(rear >=MAX-1)
+		{
+			printf("Queue is full");
+		}
+		else
+		{
+			if(front=-1)
+			{
+				front=0;
+				rear=rear+1;
+				array[rear]=str[i];
+			}
+		}
+	}
+	
+
+	int j=strlen(str)-1;
+	for(i=front;i<=rear;i++)
+	{
+		reverse[i]=array[j];
+			
+		j--;
+			
+	}
+	if(strcmp(reverse,array)==0)
+	{printf("\nits a palindrome");
+	}
+	else
+	{
+		printf("not a palindrome bro");
+	}
+}
