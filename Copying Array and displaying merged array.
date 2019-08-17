@@ -1,0 +1,39 @@
+#include <stdio.h>
+int main()
+{
+   int array[10],b[10],c,i,n,*ptr1,*ptr2;
+   printf("Enter number of elements in array1\n");
+   scanf("%d", &n);
+   printf("Enter %d elements\n", n);
+   for (c = 0; c < n; c++)
+      scanf("%d", &array[c]);
+    printf("Copying array1 in array2.......\n");
+    for(i=0;i<n;i++)
+    {
+		b[i]=array[i];
+	}
+	ptr1= array;
+	ptr2= b;
+	printf("Showing both the arrays\n");
+	printf("Array1:");
+	for(i=0;i<n;i++)
+	{
+		printf(" %d ",*(ptr1+i));
+	}
+	printf("\nArray2:");
+	for(i=0;i<n;i++)
+	{
+		printf(" %d ",*(ptr2+i));
+	}
+	int array3[52];
+	for(i=0;i<n;i++)
+	{
+		array3[i]=array[i];
+		array3[i+n]=b[i];
+	}
+	printf("\nMerged Array Elements\n");
+	for(i=0;i<2*n;i++)
+	{
+		printf(" %d ",array3[i]);
+	}
+}
