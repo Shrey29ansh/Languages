@@ -1,0 +1,32 @@
+#include <stdio.h>
+int main()
+{
+   int array[100], position, c, n, i,j;
+   printf("Enter number of elements in array\n");
+   scanf("%d", &n);
+   printf("Enter %d elements\n", n);
+	for (c = 0; c < n; c++)
+     	scanf("%d", &array[c]);
+    printf("array:");
+    for (c = 0; c < n; c++)
+		printf("%d ",array[c]);
+    for(i=0;i<n;i++)
+    {
+    	for(j=i+1;j<n;j++)
+    	{
+			if(array[j]<array[i])
+			{
+				int temp;
+				temp=array[j];
+				array[j]=array[i];
+				array[i]=temp;
+			}
+		}
+	}
+	printf("\nElements of array in sorted ascending order: "); 
+	for(c=0; c<n; c++) 
+    {
+		printf(" %d ", array[c]); 
+	} 
+	return 0; 
+}
