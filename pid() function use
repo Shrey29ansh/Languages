@@ -1,0 +1,27 @@
+#include<stdio.h>
+#include<unistd.h> //System call Fork
+#include<sys/types.h> // PID : Product Identification number
+#include<sys/wait.h> //holds the parent process untill the child process is not completed
+void parent_process();
+void child_process();
+int status;
+pid_t pid;
+void main()
+{
+pid=fork();
+if(pid==0)
+	child_process();
+else
+	parent_process();
+//when pid!=0 then it return thr child process address to tht parent process
+}
+
+void child_process()
+{
+printf("PID of the child and parent:%d and %d\n",getpid(),getppid());
+}
+void parent_process()
+{
+wait(&status);
+printf("PID of the parent and child :%d and %d\n",getpid(),pid);
+}
