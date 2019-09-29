@@ -1,0 +1,79 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+struct Prior
+{
+char name;
+int arr;
+int bur;
+int pr;
+}swap1,swap;
+
+void main()
+{
+int n,j,k;
+printf("Enter the no of processes:");
+scanf("%d",&n);
+struct Prior p[n];
+int i;
+
+
+
+for(i=0;i<n;i++)
+{
+printf("Enter arrival time,Enter burst time,Enter Priority of process,Enter process name\n");
+scanf(" %d %d %d %s",&p[i].arr,&p[i].bur,&p[i].pr,&p[i].name);
+}
+
+
+
+for(i=0;i<n-1;i++)
+{
+	for(j=0;j<n-1-i;j++)
+	{	
+		if(p[j].arr>p[j+1].arr)
+		{
+			swap1=p[j];
+			p[j]=p[j+1];
+			p[j+1]=swap1;
+		}
+			
+	}
+}
+
+
+int sum=0,x=0;
+if(p[0].arr==0)
+	{
+		printf("%c    ",p[0].name);
+	}
+	else
+	{
+		printf("     idle from 0-%d    ",p[0].arr);
+
+	}
+for(i=1;i<n;i++)
+{
+
+sum = sum+p[i].bur+x;
+	if(p[i+1].arr>sum)
+	{			
+		x=p[i+1].arr-sum;
+		printf("  idle from %d-%d    ",sum,p[i+1].arr);
+		
+
+	}
+	else
+	{	
+		for(j=0;j<n;j++)
+		{
+			if(p[j].pr<p[j+1].pr)
+			{
+				printf("%c    ",p[j].name);
+			}
+	
+		}
+	}
+}
+
+}
