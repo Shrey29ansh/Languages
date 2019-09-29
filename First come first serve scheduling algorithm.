@@ -1,0 +1,57 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+struct Fcfs
+{
+char Name;
+int Burst;
+int Arrival;
+}swap;
+
+int main()
+{
+int n,i,x,j,p,c[50],sum=0,m=0;
+printf("Enter number of processes\n");
+scanf("%d\n",&n);
+p=n+1;
+
+
+struct Fcfs F[n];
+
+for(i=0;i<p;i++)
+{
+
+scanf("%c",&F[i].Name);
+scanf("%d",&F[i].Burst);
+scanf("%d",&F[i].Arrival);
+}
+
+for(i=0;i<n+1;i++)
+{
+	for(j=0;j<=n-1-i;j++)
+	{
+		if(F[j].Arrival > F[j+1].Arrival)
+		{
+			swap =F[j];
+			F[j] =F[j+1];
+			F[j+1] =swap;
+		}
+	}
+}
+c[0]=F[0].Arrival;
+printf("%d ",c[0]);
+for(i=1;i<=n;i++)
+{
+	sum=sum+F[i-1].Burst;
+	c[i]=sum;
+	if(F[i+1].Arrival>sum)
+	{
+		c[i+1]=F[i+1].Arrival;
+		sum=c[i+1];
+i++; 
+		
+	}
+
+}
+for
+}
