@@ -1,0 +1,32 @@
+#include<stdio.h>
+#include<unistd.h>
+#include<semaphore.h>
+#include<pthread.h>
+sem_t mutex;
+int x;
+void*thread(void *arg)
+{
+	sem_wait(&mutex);
+	printf("Inside Critical Section\n");
+	x++;
+	sleep(10);
+	printf("Exiting");
+	sem_post(&mutex);
+	printf("Value of x is %d",x);
+}
+int main()
+{
+	sem_init(&mutex, 0,1);
+	pthread_t T1,T2;
+	pthread_create(&T1,NULL,thread,NULL);
+	sleep(4);
+	pthread_create(&T2,NULL,thread,NULL);
+	pthread_join(T1,NULL);
+	pthread_join(T2,NULL);
+	sem_destroy(&mutex);
+	return 0;
+	
+}
+
+//while compiling the program in linux use gcc filename -lpthread
+//lpthread will give command to compiler that we are executing pthread.h header file.
