@@ -1,0 +1,29 @@
+#include<stdio.h>
+int main()
+{
+	int n,base[50],limit[50],i,m;
+	printf("Enter the no of segments:");
+	scanf("%d",&n);
+	int map[50];
+	for(i=0;i<n;i++)
+	{
+		printf("Enter offset value in order of segment no from 0 to %d\n",n);
+		scanf("%d",&map[i]);
+		printf("Enter base and limit\n");
+		scanf("%d %d",&base[i],&limit[i]);
+	}
+	printf("Checking...\n");
+	for(i=0;i<n;i++)
+	{		
+		if(map[i]<limit[i])
+		{
+			m=map[i]+base[i];
+			printf("Physical address is corresponding to segment no=%d is %d\n",i,m);
+		}
+		else
+		{
+			printf("Trap");
+		}	
+}
+return 0;
+}
