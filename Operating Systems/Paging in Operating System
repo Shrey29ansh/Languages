@@ -1,0 +1,23 @@
+#include<stdio.h>
+
+int main()
+{
+int m=4,n=2,i,j;
+int nbytes=4;
+int paging[4]={5,6,1,2};
+char lunf[4][4]={{'a','b','c','d'},{'e','f','g','h'},{'i','j','k','l'},{'m','n','o','p'}};
+int frames[32];
+int x;
+for(i=0;i<4;i++)
+{
+x=paging[i]*nbytes;
+for(j=0;j<4;j++)
+{
+
+printf("%c-%d\n",lunf[i][j],x);
+x++;
+}
+}
+
+
+}
